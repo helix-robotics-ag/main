@@ -10,3 +10,6 @@
 [submodule "ros-helix"]
 	path = ros-helix
 	url = https://github.com/helix-robotics-ag/ros-helix
+[submodule "ros-helix-proprietary"]
+	path = ros-helix-proprietary
+	url = git@github.com:helix-robotics-ag/ros-helix-proprietary.git

@@ -51,3 +51,14 @@ services:
     ipc: host
     pid: host
     command: su - ros /run.sh
+
+  ros-helix-proprietary:
+    image: ghcr.io/helix-robotics-ag/ros-helix-proprietary:iron
+    build:
+      context: ros-helix-proprietary
+      dockerfile: Dockerfile   
+    restart: always
+    network_mode: "host"
+    ipc: host
+    pid: host
+    command: su - ros /run.sh
