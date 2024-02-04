@@ -2,19 +2,18 @@
   "configById": {
     "3D!2mysn4t": {
       "cameraState": {
+        "distance": 0.5807092723529385,
         "perspective": true,
-        "distance": 0.4493417651762219,
-        "phi": 59.999999999998494,
-        "thetaOffset": 53.314087759816196,
-        "targetOffset": [
-          -0.04479568150960267,
-          -0.04078185173788653,
-          -3.478847393013295e-18
-        ],
+        "phi": 59.999999999998344,
         "target": [
           0,
           0,
           0
+        ],
+        "targetOffset": [
+          -0.04865480337924019,
+          -0.004280758498484487,
+          -3.478847393013292e-18
         ],
         "targetOrientation": [
           0,
@@ -22,6 +21,7 @@
           0,
           1
         ],
+        "thetaOffset": 53.31408775981634,
         "fovy": 45,
         "near": 0.5,
         "far": 5000
@@ -179,8 +179,8 @@
     "Plot!4c9yiqa": {
       "paths": [
         {
-          "timestampMethod": "receiveTime",
-          "value": "/rosout.stamp.sec",
+          "timestampMethod": "headerStamp",
+          "value": "/dynamixel_joint_state_publisher/joint_states.position[9]",
           "enabled": true
         }
       ],
@@ -191,7 +191,10 @@
       "showPlotValuesInLegend": false,
       "isSynced": true,
       "xAxisVal": "timestamp",
-      "sidebarDimension": 240
+      "sidebarDimension": 240,
+      "followingViewWidth": 30,
+      "maxYValue": -3.2,
+      "minYValue": 3.2
     },
     "RawMessages!10alrjp": {
       "diffEnabled": false,
@@ -249,7 +252,7 @@
       "buttonText": "Publish",
       "buttonTooltip": "",
       "advancedView": true,
-      "value": "{\n  \"layout\": {\n    \"dim\": [\n      {\n        \"label\": \"\",\n        \"size\": 0,\n        \"stride\": 0\n      }\n    ],\n    \"data_offset\": 0\n  },\n  \"data\": [\n    0.8, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5\n  ]\n}",
+      "value": "{\n  \"layout\": {\n    \"dim\": [\n      {\n        \"label\": \"\",\n        \"size\": 0,\n        \"stride\": 0\n      }\n    ],\n    \"data_offset\": 0\n  },\n  \"data\": [\n    0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0\n  ]\n}",
       "topicName": "/dynamixel_position_controller/commands",
       "datatype": "std_msgs/msg/Float64MultiArray"
     }
