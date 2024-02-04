@@ -1,0 +1,12 @@
+[submodule "ros-foxglove-bridge"]
+	path = ros-foxglove-bridge
+	url = https://github.com/helix-robotics-ag/ros-foxglove-bridge
+[submodule "ros-rosbridge-suite"]
+	path = ros-rosbridge-suite
+	url = https://github.com/helix-robotics-ag/ros-rosbridge-suite
+[submodule "studio"]
+	path = studio
+	url = https://github.com/helix-robotics-ag/studio
+[submodule "ros-helix"]
+	path = ros-helix
+	url = https://github.com/helix-robotics-ag/ros-helix

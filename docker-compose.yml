@@ -1,0 +1,53 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx
+    volumes:
+      - ./config/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    network_mode: "host"
+    restart: always
+
+  studio:
+    image: ghcr.io/helix-robotics-ag/studio:latest
+    build:
+      context: studio
+      dockerfile: Dockerfile
+    volumes:
+      - ./config/studio/layout.json:/foxglove/default-layout.json
+    ports:
+      - 8080:8080
+    restart: always
+
+  ros-foxglove-bridge:
+    image: ghcr.io/helix-robotics-ag/ros-foxglove-bridge:iron
+    build:
+      context: ros-foxglove-bridge
+      dockerfile: Dockerfile
+    restart: always
+    network_mode: "host"
+    ipc: host
+    pid: host
+    command: su - ros /run.sh
+
+  ros-rosbridge-suite:
+    image: ghcr.io/helix-robotics-ag/ros-rosbridge-suite:iron
+    build:
+      context: ros-rosbridge-suite
+      dockerfile: Dockerfile    
+    restart: always
+    network_mode: "host"
+    ipc: host
+    pid: host
+    command: su - ros /run.sh
+
+  ros-helix:
+    image: ghcr.io/helix-robotics-ag/ros-helix:iron
+    build:
+      context: ros-helix
+      dockerfile: Dockerfile   
+    restart: always
+    network_mode: "host"
+    ipc: host
+    pid: host
+    command: su - ros /run.sh
