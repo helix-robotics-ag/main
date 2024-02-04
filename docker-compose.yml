@@ -46,7 +46,7 @@ services:
     image: ghcr.io/helix-robotics-ag/ros-helix:iron
     build:
       context: ros-helix
-      dockerfile: Dockerfile   
+      dockerfile: Dockerfile
     restart: always
     network_mode: "host"
     ipc: host
