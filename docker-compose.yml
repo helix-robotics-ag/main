@@ -51,7 +51,12 @@ services:
     network_mode: "host"
     ipc: host
     pid: host
-    command: su - ros /run.sh
+    environment:
+      - UID
+      - GID
+      - ROS_DOMAIN_ID
+    command: su - ros --whitelist-environment=ROS_DOMAIN_ID /run.sh
+
 
   # ros-helix-proprietary:
   #   image: ghcr.io/helix-robotics-ag/ros-helix-proprietary:iron
