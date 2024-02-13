@@ -21,6 +21,7 @@ Configured and activated motor_head_joint_position_controller (in green)
 Loaded motor_head_joint_state_broadcaster (in blue)
 Configured and activated motor_head_joint_state_broadcaster (in green)
 ```
+(Note there may still be some errors such as `[DynamixelHardware]: groupSyncRead getdata failed`, this is ok as long as they're not being printed continuously)
 ## Test reading and sending commands
 - In roslibpy with [the test script](https://github.com/fstella97/HelixRobotics/blob/main/ROS/roslibpy_test.py)
-- In foxglove studio: use a broswer to go to `<IP_of_Pi>:8080`, choose 'Open Connection' and use `ws://<IP_of_Pi>:8765
+- In foxglove studio: use a broswer to go to `<IP_of_Pi>:8080`, choose 'Open Connection' and use `ws://<IP_of_Pi>:8765`
