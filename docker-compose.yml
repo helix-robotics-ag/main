@@ -1,5 +1,8 @@
 version: '3'
 
+include:
+  - ros-helix/docker-compose.yml
+
 services:
   nginx:
     image: nginx
@@ -47,22 +50,6 @@ services:
       - UID=${MY_UID}
       - ROS_DOMAIN_ID
     command: su - ros --whitelist-environment=ROS_DOMAIN_ID /run.sh
-
-  ros-helix:
-    image: ghcr.io/helix-robotics-ag/ros-helix:iron
-    build:
-      context: ros-helix
-      dockerfile: Dockerfile
-    restart: always
-    network_mode: "host"
-    privileged: true
-    ipc: host
-    pid: host
-    environment:
-      - UID=${MY_UID}
-      - ROS_DOMAIN_ID
-    command: su - ros --whitelist-environment=ROS_DOMAIN_ID /run.sh
-
 
   # ros-helix-proprietary:
   #   image: ghcr.io/helix-robotics-ag/ros-helix-proprietary:iron
