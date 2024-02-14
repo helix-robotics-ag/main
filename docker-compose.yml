@@ -1,7 +1,10 @@
 version: '3'
 
 include:
+  - ros-foxglove-bridge/docker-compose.yml
+  - ros-rosbridge-suite/docker-compose.yml
   - ros-helix/docker-compose.yml
+  # - ros-helix-proprietary/docker-compose.yml
 
 services:
   nginx:
@@ -22,45 +25,3 @@ services:
     ports:
       - 8080:8080
     restart: always
-
-  ros-foxglove-bridge:
-    image: ghcr.io/helix-robotics-ag/ros-foxglove-bridge:iron
-    build:
-      context: ros-foxglove-bridge
-      dockerfile: Dockerfile
-    restart: always
-    network_mode: "host"
-    ipc: host
-    pid: host
-    environment:
-      - UID=${MY_UID}
-      - ROS_DOMAIN_ID
-    command: su - ros --whitelist-environment=ROS_DOMAIN_ID /run.sh
-
-  ros-rosbridge-suite:
-    image: ghcr.io/helix-robotics-ag/ros-rosbridge-suite:iron
-    build:
-      context: ros-rosbridge-suite
-      dockerfile: Dockerfile    
-    restart: always
-    network_mode: "host"
-    ipc: host
-    pid: host
-    environment:
-      - UID=${MY_UID}
-      - ROS_DOMAIN_ID
-    command: su - ros --whitelist-environment=ROS_DOMAIN_ID /run.sh
-
-  # ros-helix-proprietary:
-  #   image: ghcr.io/helix-robotics-ag/ros-helix-proprietary:iron
-  #   build:
-  #     context: ros-helix-proprietary
-  #     dockerfile: Dockerfile   
-  #   restart: always
-  #   network_mode: "host"
-  #   ipc: host
-  #   pid: host
-  #   environment:
-  #   - UID=${MY_UID}
-  #   - ROS_DOMAIN_ID
-  #   command: su - ros --whitelist-environment=ROS_DOMAIN_ID /run.sh
