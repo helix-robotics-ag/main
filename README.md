@@ -27,3 +27,6 @@ Configured and activated motor_head_joint_state_broadcaster (in green)
 ## Test reading and sending commands
 - In roslibpy with [the test script](https://github.com/fstella97/HelixRobotics/blob/main/ROS/roslibpy_test.py)
 - In foxglove studio: use a broswer to go to `<IP_of_Pi>:8080`, choose 'Open Connection' and use `ws://<IP_of_Pi>:8765`
+
+## Tendon control
+See further instructions in the ros-helix repo README.
