@@ -14,10 +14,12 @@ $ git submodule update --init --recursive
  - In a perfect world, you can now do `$ docker compose up` and everything will start up (note: the motors might make a full turn on start up, make sure the tendons aren't already overly tight)
  - In the real world, Dynamixel Workbench and the USB connection is currently a bit unstable, and might require a few tries to work. To make the output a bit more readable, start all the other containers in one terminal: `$ docker compose up nginx studio ros-foxglove-bridge ros-rosbridge-suite` and the motor controller container in a separate one: `$ docker compose up ros-helix`
  - There might be a lot of output as the `ros-helix` container starts up, if there are red 'controller failed to activate' messages or continuous streams of errors, shut it down and try again
- - If the below four messages are printed, everything should be working:
+ - If the below messages are printed, everything should be working:
 ```
 Loaded motor_head_joint_position_controller (in blue)
 Configured and activated motor_head_joint_position_controller (in green)
+Loaded motor_head_joint_effort_controller (in blue)
+Configured and activated motor_head_joint_effort_controller (in green)
 Loaded motor_head_joint_state_broadcaster (in blue)
 Configured and activated motor_head_joint_state_broadcaster (in green)
 ```
