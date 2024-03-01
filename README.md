@@ -4,7 +4,7 @@
 - Make sure you can authenticate on github (eg set up SSH key on the Pi)
 - [Copy the rules file](https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_workbench/#copy-rules-file) for Dynamixel Workbench
 ## Clone repo/submodules
-- Clone this repo
+- Clone this repo  
 - In the repo, initialise and update all its submodules recursively:
 ```
 $ cd main/
