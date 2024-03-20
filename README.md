@@ -3,7 +3,7 @@
 - Install docker on the Pi - most easily with the [script](https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script), including the [post-install steps](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user) mentioned under **'Use Docker as a non-privileged user...'**.
 - Make sure you can authenticate on github (eg set up SSH key on the Pi)
 - [Copy the rules file](https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_workbench/#copy-rules-file) for Dynamixel Workbench
-- Create the robot config folder on the Pi: `mkdir ~/.config`
+- Create the robot config folder on the Pi: `mkdir ~/.config/helix`
 ## Clone repo/submodules
 - Clone this repo
 - In the repo, initialise and update all its submodules recursively:
