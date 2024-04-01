@@ -35,7 +35,7 @@ Loaded motor_head_joint_effort_controller (in blue)
     - Note that generally, it is fine to leave the other containers running (assuming the problem is with launching `ros-helix`)
 - If problems launching persist, one thing to check is whether the `ttyUSB0` port is listed in the `/dev/` directory of the Pi. If it isn't there or the number isn't `0`, the controller definitely won't launch. However, ultimately the solution to this is still just power cycling/reconnecting the USB, or in the worst case, restarting the Pi itself.
 
-# I want to control the robot from Python, Foxglove or ROS
+# I want to control the robot from ROS, Foxglove or Python
 Assuming the Pi has already been set up as above, see the instructions in the [ros-helix repo](https://github.com/helix-robotics-ag/ros-helix/tree/main) README.
 
 # I want to develop code inside these repositories to run on the robot controller itself
@@ -53,3 +53,26 @@ There are other ways to handle all of this, which you can read about in the git 
 
 ## Container setup
 This repo contains a `docker-compose-yml` file, which allows for a user to simply run `docker compose up` in order to launch all the required containers from the remotely built images, and with the standard configurations. To develop the code, you need to know more about how these containers are configured and built, as well as how to more efficiently change and build them locally.
+
+### What happens when a container is launched normally
+Since the `main` repo is just used to combine the launch files and doesn't define a container itself, we will refer to the `ros-helix` repository as a full example. Starting with the `docker-compose.yml` file in that repo, we can see that launching a container using it (such as with `docker compose up` from the `main` or `ros-helix` repo) will use an image hosted on `ghcr.io`. Without going into detail, this image is built remotely whenever a push to the `main` branch of `ros-helix` occurs - see `.github/workflows/ci.yml`. Other details defined in this compose configuration file include: specifying the `Dockerfile` in the repo will be used to build the container; settings to share networking and ports with the host; some environment variables and volume mounts; and finally the command that will run when the container starts. To understand what the startup command does, we will first need to review the build process for the container image, defined by the `Dockerfile`.
+
+### What happens when the container image is built
+As specified in `docker-compose.yml`, the file `Dockerfile` defines the build process. There are several stages to the build:
+- Firstly, a minimal `ros-core` image is used as a base to start from
+- Next, a range of additional packages are installed, including some standard ROS tools and message definitions, as well as more specific dependencies (such as `ros2-control` and `dynamixel-workbench-toolbox` for the `ros-helix` container)
+- Next, the `ros-entrypoint.sh` script is copied from the repo into the container image. Note that executing this script on startup is inherited from [the base ROS image](https://github.com/osrf/docker_images/blob/27cc0b68263bbbb10bb58dd814efc0a6b0a01ec7/ros/iron/ubuntu/jammy/ros-core/Dockerfile#L45). Aside from sourcing the ROS installaion `setup.bash`, this script also creates a user `ros`, with a UID that may be inherited from a host environment variable.
+- Next, the source code from the repo is copied into a colcon workspace in the container image, where it is built and sourced. The next line creates a shortcut for building the colcon workspace when inside the container.
+- The second to last line writes some commands to the shell script `/run.sh`, which defines the standard startup behaviour of the container. For `ros-helix`, this is to source the required installation paths, then run a launch file: `ros2 launch helix_bringup helix_bringup.launch.py`.
+- The final line also creates a shortcut, this time to execute the `/run.sh` script as the user `ros`. Note that this is the same command used in the `docker-compose.yml` file.
+
+Having examined the above, we can now see that when running `docker compose up`, a container will start using the remotely built image and configured as in `docker-compose-yml`. Once it is created, a command will be run inside the container which switches to the `ros` user (who has previously been defined in the `ros_entrypoint.sh` script) and executes the `/run.sh` script, which is where the actual nodes we want to run inside the container are launched.
+
+### How to make and test changes
+Important note: you should always create a new branch to make and test changes on, not commit or push changes directly to the `main` branch (in fact, you will usually not be able to do this without creating a pull request that needs to be reviewed).
+
+If you make changes to the source code in the repositories locally, then launch the containers using the remotely built images, nothing will change, since the container image is based on the code that was last pushed to the `main` branch. Instead, you could rebuild the image locally (run the `build.sh` script in the repo, or just do `docker compose build`) so that your local source code is copied in during the build process. This will work, but building the whole image can take a long time, especially if you are developing directly on a Pi. 
+
+An alternative way to test changes more efficiently is to use the `run.sh` script in the repository (note that this is completely separate from the `run.sh` script that exists __inside__ the container). Executing this script will start the container using the same `docker-compose.yml` configuration, with two differences compared to just using `docker compose up`:
+- The source code directories in the repository will be mounted into the colcon workspace in the container (ie, it will overwrite the files that were copied in when the image was built). Note that mounted in the container this way, the directories are shared with the host, so changes made on the host will be reflected in the (running) container and vice versa.
+- The command defined in `docker-compose.yml` is overwritten. Instead you will be presented with a terminal inside the container, conveniently in the `colcon_ws` directory. From here you can use the `build` alias to build the modified source code, and the `run` alias to execute the normal startup command. In this way you can test the code, stop it, make changes on the host, rebuild the source code only, and retest it, in an efficient loop and without having to close or rebuild the container image.
