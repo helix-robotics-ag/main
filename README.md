@@ -1,21 +1,22 @@
-# Run on Pi
-## Setup
-- Install docker on the Pi - most easily with the [script](https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script), including the [post-install steps](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user) mentioned under **'Use Docker as a non-privileged user...'**.
-- Make sure you can authenticate on github (eg set up SSH key on the Pi)
+# I want to set up and run for the first time on a new RPi
+
+## Initial Pi configuration steps
+- Ideally begin with a clean OS image (Rasperry Pi OS Lite recommended)
+- Install docker - most easily with the [script](https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script), including the [post-install steps](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user) mentioned under **'Use Docker as a non-privileged user...'**.
+- Make sure you can authenticate on github (eg set up an SSH key on the Pi)
 - [Copy the rules file](https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_workbench/#copy-rules-file) for Dynamixel Workbench
 - Create the robot config folder on the Pi: `mkdir ~/.config/helix`
-## Clone repo/submodules
-- Clone this repo
+## Installing the Helix repos
+- Clone this repo, for example into `~/helix-robotics-ag/`
 - In the repo, initialise and update all its submodules recursively:
 ```
 $ cd main/
 $ git submodule update --init --recursive
 ```
  ## Start up the controllers
- - In a perfect world, you can now do `$ docker compose up` and everything will start up (note: the motors might make a full turn on start up, make sure the tendons aren't already overly tight)
- - In the real world, Dynamixel Workbench and the USB connection is currently a bit unstable, and might require a few tries to work. To make the output a bit more readable, start all the other containers in one terminal: `$ docker compose up nginx studio ros-foxglove-bridge ros-rosbridge-suite` and the motor controller container in a separate one: `$ docker compose up ros-helix`
- - There might be a lot of output as the `ros-helix` container starts up, if there are red 'controller failed to activate' messages or continuous streams of errors, shut it down and try again
- - If the below messages are printed, everything should be working:
+ - In `main`, run `$ docker compose up` to start everything up at once.
+ - If you want the output to be more readable, containers can be started selectively in separate terminals. For example, in one terminal `$ docker compose up nginx studio ros-foxglove-bridge ros-rosbridge-suite` and in another one: `$ docker compose up ros-helix`. This will provide a separate cleaner output for the motor controller container, useful for troubleshooting.
+- If the below messages are printed when starting the `ros-helix` container, everything should be working:
 ```
 Loaded motor_head_joint_position_controller (in blue)
 Configured and activated motor_head_joint_position_controller (in green)
@@ -23,10 +24,20 @@ Loaded motor_head_joint_state_broadcaster (in blue)
 Configured and activated motor_head_joint_state_broadcaster (in green)
 Loaded motor_head_joint_effort_controller (in blue)
 ```
-(Note there may still be some errors such as `[DynamixelHardware]: groupSyncRead getdata failed`, this is ok as long as they're not being printed continuously)
-## Test reading and sending commands
-- In roslibpy with [the test script](https://github.com/fstella97/HelixRobotics/blob/main/ROS/roslibpy_test.py)
-- In foxglove studio: use a broswer to go to `<IP_of_Pi>:8080`, choose 'Open Connection' and use `ws://<IP_of_Pi>:8765`
+## Troubleshooting
+- If there are red error messages, continuous streams of errors, or inscrutable low level crash logs, things are probably not ok and should be restarted
+- It may be sufficient to just stop the `ros-helix` container (`CTRL-C`) and then restart with `$ docker compose up ros-helix`.
+- More thoroughly, you may want to close down the container properly and power cycle the motor controller:
+    - `$ docker compose down ros-helix` in the `main` repo directory
+    - Remove power from the motor controller (not the Pi), and unplug the USB connection from the controller to the Pi
+    - Power the motor controller again, then plug in the USB again
+    - Restart the container
+    - Note that generally, it is fine to leave the other containers running (assuming the problem is with launching `ros-helix`)
+- If problems launching persist, one thing to check is whether the `ttyUSB0` port is listed in the `/dev/` directory of the Pi. If it isn't there or the number isn't `0`, the controller definitely won't launch. However, ultimately the solution to this is still just power cycling/reconnecting the USB, or in the worst case, restarting the Pi itself.
 
-## Tendon control
-See further instructions in the ros-helix repo README.
+
+# I want to control the robot from Python, Foxglove or ROS
+Assuming the Pi has already been set up as above, see the instructions in the [ros-helix repo](https://github.com/helix-robotics-ag/ros-helix/tree/main) README.
+
+# I want to develop code inside these repositories to run on the robot controller itself
+- TBC
