@@ -2,19 +2,18 @@
   "configById": {
     "3D!2mysn4t": {
       "cameraState": {
+        "distance": 0.9213959797364845,
         "perspective": true,
-        "distance": 0.5807092723526655,
-        "phi": 60.83140877598285,
-        "thetaOffset": 121.48960739030635,
-        "targetOffset": [
-          -0.0468962897793243,
-          -0.005282900358787018,
-          -6.5773866759899936e-18
-        ],
+        "phi": 62.041050007117626,
         "target": [
           0,
           0,
           0
+        ],
+        "targetOffset": [
+          -0.882205573115996,
+          0.023861008341234197,
+          -2.4868086005988874e-18
         ],
         "targetOrientation": [
           0,
@@ -22,6 +21,7 @@
           0,
           1
         ],
+        "thetaOffset": 90.60709105145756,
         "fovy": 45,
         "near": 0.5,
         "far": 5000
@@ -179,29 +179,95 @@
     "Plot!4c9yiqa": {
       "paths": [
         {
-          "timestampMethod": "headerStamp",
-          "value": "/dynamixel_joint_state_publisher/joint_states.position[9]",
-          "enabled": true
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[0]",
+          "enabled": true,
+          "color": "#2247b7"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[1]",
+          "enabled": true,
+          "color": "#389dff"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[2]",
+          "enabled": true,
+          "color": "#7eedff"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[3]",
+          "enabled": true,
+          "color": "#ec2525"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[4]",
+          "enabled": true,
+          "color": "#fea234"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[5]",
+          "enabled": true,
+          "color": "#fce96c"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[6]",
+          "enabled": true,
+          "color": "#079400"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[7]",
+          "enabled": true,
+          "color": "#53e00c"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[8]",
+          "enabled": true,
+          "color": "#90ff8b"
         }
       ],
       "showXAxisLabels": true,
       "showYAxisLabels": true,
       "showLegend": true,
-      "legendDisplay": "floating",
+      "legendDisplay": "none",
       "showPlotValuesInLegend": false,
       "isSynced": true,
       "xAxisVal": "timestamp",
       "sidebarDimension": 240,
       "followingViewWidth": 30,
-      "maxYValue": -3.2,
-      "minYValue": 3.2
+      "maxYValue": 0.03,
+      "minYValue": -0.2
+    },
+    "Table!sp3lpe": {
+      "topicPath": "/tendon_transmission_node/tendon_states"
+    },
+    "CallService!2aib645": {
+      "requestPayload": "{\"current\": 0.0}",
+      "layout": "vertical",
+      "serviceName": "/tendon_transmission_node/switch_to_current_control"
+    },
+    "Publish!31ewfnw": {
+      "buttonText": "Publish",
+      "buttonTooltip": "",
+      "advancedView": true,
+      "value": "{\n  \"layout\": {\n    \"dim\": [\n      {\n        \"label\": \"\",\n        \"size\": 0,\n        \"stride\": 0\n      }\n    ],\n    \"data_offset\": 0\n  },\n  \"data\": [\n    0,0,0,0,0,0,0,0,0\n  ]\n}",
+      "datatype": "std_msgs/msg/Float64MultiArray",
+      "topicName": "/tendon_transmission_node/commands"
     },
     "RawMessages!10alrjp": {
       "diffEnabled": false,
-      "diffMethod": "custom",
+      "diffMethod": "previous message",
       "diffTopicPath": "",
       "showFullMessageForDiff": false,
-      "topicPath": "/rosout"
+      "topicPath": "/tendon_transmission_node/tendon_states",
+      "expansion": "all"
     },
     "Teleop!3v6wh9i": {
       "topic": "/joy_cmd",
@@ -231,30 +297,35 @@
             "first": {
               "first": "3D!2mysn4t",
               "second": "Plot!4c9yiqa",
-              "direction": "row"
+              "direction": "column",
+              "splitPercentage": 64.79820627802691
             },
             "second": {
-              "first": {
-                "first": "Publish!31ewfnw",
-                "second": "RawMessages!10alrjp",
-                "direction": "column"
+              "first": "Table!sp3lpe",
+              "second": {
+                "first": {
+                  "first": {
+                    "first": "CallService!2aib645",
+                    "second": "Publish!31ewfnw",
+                    "direction": "column",
+                    "splitPercentage": 45.39007092198582
+                  },
+                  "second": "RawMessages!10alrjp",
+                  "direction": "row"
+                },
+                "second": "Teleop!3v6wh9i",
+                "direction": "row",
+                "splitPercentage": 79.62477965529537
               },
-              "second": "Teleop!3v6wh9i",
-              "direction": "row"
+              "direction": "column",
+              "splitPercentage": 35.53811659192825
             },
-            "direction": "column"
+            "direction": "row",
+            "splitPercentage": 27.97459176274752
           },
           "title": "1"
         }
       ]
-    },
-    "Publish!31ewfnw": {
-      "buttonText": "Publish",
-      "buttonTooltip": "",
-      "advancedView": true,
-      "value": "{\n  \"layout\": {\n    \"dim\": [\n      {\n        \"label\": \"\",\n        \"size\": 0,\n        \"stride\": 0\n      }\n    ],\n    \"data_offset\": 0\n  },\n  \"data\": [\n    0.8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0\n  ]\n}",
-      "topicName": "/dynamixel_position_controller/commands",
-      "datatype": "std_msgs/msg/Float64MultiArray"
     }
   },
   "globalVariables": {},
