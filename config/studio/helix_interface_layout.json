@@ -1,0 +1,338 @@
+{
+  "configById": {
+    "3D!2mysn4t": {
+      "cameraState": {
+        "perspective": true,
+        "distance": 0.9213959797364845,
+        "phi": 62.041050007117626,
+        "thetaOffset": 90.60709105145756,
+        "targetOffset": [
+          -0.882205573115996,
+          0.023861008341234197,
+          -2.4868086005988874e-18
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "targetOrientation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "fovy": 45,
+        "near": 0.5,
+        "far": 5000
+      },
+      "followMode": "follow-pose",
+      "scene": {
+        "transforms": {
+          "showLabel": true,
+          "enablePreloading": true,
+          "lineWidth": 0.5,
+          "axisScale": 0.5,
+          "labelSize": 0.02
+        }
+      },
+      "transforms": {
+        "frame:world": {
+          "visible": true
+        },
+        "frame:Index_Base_1": {
+          "visible": false
+        },
+        "frame:base_link": {
+          "visible": false
+        },
+        "frame:Middle_Base_1": {
+          "visible": false
+        },
+        "frame:Pinky_Base_1": {
+          "visible": false
+        },
+        "frame:Ring_Base_1": {
+          "visible": false
+        },
+        "frame:Thumb_Base_1": {
+          "visible": false
+        },
+        "frame:dynamixel_block": {
+          "visible": true
+        },
+        "frame:Pinky_2dof_joint_1": {
+          "visible": false
+        },
+        "frame:Ring_2dof_joint_1": {
+          "visible": false
+        },
+        "frame:Middle_2dof_joint_1": {
+          "visible": false
+        },
+        "frame:Index_2dof_joint_1": {
+          "visible": false
+        },
+        "frame:Pinky_Proximal_1": {
+          "visible": false
+        },
+        "frame:Ring_Proximal_1": {
+          "visible": false
+        },
+        "frame:Middle_Proximal_1": {
+          "visible": false
+        },
+        "frame:Index_Proximal_1": {
+          "visible": false
+        },
+        "frame:Thumb_Metacarpal_1": {
+          "visible": false
+        },
+        "frame:Pinky_Middle_1": {
+          "visible": false
+        },
+        "frame:Ring_Middle_1": {
+          "visible": false
+        },
+        "frame:Middle_Middle_1": {
+          "visible": false
+        },
+        "frame:Index_Middle_1": {
+          "visible": false
+        },
+        "frame:Thumb_Proximal_1": {
+          "visible": false
+        },
+        "frame:Pinky_Distal_1": {
+          "visible": false
+        },
+        "frame:Ring_Distal_1": {
+          "visible": false
+        },
+        "frame:Middle_Distal_1": {
+          "visible": false
+        },
+        "frame:Index_Distal_1": {
+          "visible": false
+        },
+        "frame:Thumb_Distal_1": {
+          "visible": false
+        },
+        "frame:Thumb_2dof_joint_1": {
+          "visible": false
+        },
+        "frame:horn_0_1": {
+          "visible": true
+        },
+        "frame:horn_1_1": {
+          "visible": false
+        },
+        "frame:horn_2_1": {
+          "visible": false
+        },
+        "frame:horn_3_1": {
+          "visible": false
+        },
+        "frame:horn_4_1": {
+          "visible": false
+        },
+        "frame:horn_5_1": {
+          "visible": false
+        },
+        "frame:horn_6_1": {
+          "visible": false
+        },
+        "frame:horn_7_1": {
+          "visible": false
+        },
+        "frame:horn_8_1": {
+          "visible": false
+        },
+        "frame:horn_9_1": {
+          "visible": false
+        },
+        "frame:horn_10_1": {
+          "visible": false
+        },
+        "frame:horn_11_1": {
+          "visible": false
+        }
+      },
+      "topics": {
+        "/robot_description": {
+          "visible": true,
+          "displayMode": "visual"
+        }
+      },
+      "layers": {},
+      "publish": {
+        "type": "point",
+        "poseTopic": "/move_base_simple/goal",
+        "pointTopic": "/clicked_point",
+        "poseEstimateTopic": "/initialpose",
+        "poseEstimateXDeviation": 0.5,
+        "poseEstimateYDeviation": 0.5,
+        "poseEstimateThetaDeviation": 0.26179939
+      },
+      "imageMode": {}
+    },
+    "Plot!4c9yiqa": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[0]",
+          "enabled": true,
+          "color": "#2247b7"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[1]",
+          "enabled": true,
+          "color": "#389dff"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[2]",
+          "enabled": true,
+          "color": "#7eedff"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[3]",
+          "enabled": true,
+          "color": "#ec2525"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[4]",
+          "enabled": true,
+          "color": "#fea234"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[5]",
+          "enabled": true,
+          "color": "#fce96c"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[6]",
+          "enabled": true,
+          "color": "#079400"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[7]",
+          "enabled": true,
+          "color": "#53e00c"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[8]",
+          "enabled": true,
+          "color": "#90ff8b"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "none",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30,
+      "maxYValue": 0.03,
+      "minYValue": -0.2
+    },
+    "Table!sp3lpe": {
+      "topicPath": "/tendon_transmission_node/tendon_states"
+    },
+    "CallService!2aib645": {
+      "requestPayload": "{\"current\": 0.0}",
+      "layout": "vertical",
+      "serviceName": "/tendon_transmission_node/switch_to_current_control"
+    },
+    "Publish!31ewfnw": {
+      "buttonText": "Publish",
+      "buttonTooltip": "",
+      "advancedView": true,
+      "value": "{\n  \"layout\": {\n    \"dim\": [\n      {\n        \"label\": \"\",\n        \"size\": 0,\n        \"stride\": 0\n      }\n    ],\n    \"data_offset\": 0\n  },\n  \"data\": [\n    0,0,0,0,0,0,0,0,0\n  ]\n}",
+      "datatype": "std_msgs/msg/Float64MultiArray",
+      "topicName": "/tendon_transmission_node/commands"
+    },
+    "RawMessages!10alrjp": {
+      "diffEnabled": false,
+      "diffMethod": "previous message",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "/tendon_transmission_node/tendon_states",
+      "expansion": "all"
+    },
+    "Teleop!3v6wh9i": {
+      "topic": "/joy_cmd",
+      "publishRate": 1,
+      "upButton": {
+        "field": "linear-x",
+        "value": 1
+      },
+      "downButton": {
+        "field": "linear-x",
+        "value": -1
+      },
+      "leftButton": {
+        "field": "angular-z",
+        "value": 1
+      },
+      "rightButton": {
+        "field": "angular-z",
+        "value": -1
+      }
+    },
+    "Tab!2zeje0v": {
+      "activeTabIdx": 0,
+      "tabs": [
+        {
+          "layout": {
+            "first": {
+              "first": "3D!2mysn4t",
+              "second": "Plot!4c9yiqa",
+              "direction": "column",
+              "splitPercentage": 64.57399103139014
+            },
+            "second": {
+              "first": "Table!sp3lpe",
+              "second": {
+                "first": {
+                  "first": {
+                    "first": "CallService!2aib645",
+                    "second": "Publish!31ewfnw",
+                    "direction": "column",
+                    "splitPercentage": 45.567375886524815
+                  },
+                  "second": "RawMessages!10alrjp",
+                  "direction": "row"
+                },
+                "second": "Teleop!3v6wh9i",
+                "direction": "row",
+                "splitPercentage": 79.62477965529537
+              },
+              "direction": "column",
+              "splitPercentage": 36.771300448430495
+            },
+            "direction": "row",
+            "splitPercentage": 29.576587795765878
+          },
+          "title": "1"
+        }
+      ]
+    }
+  },
+  "globalVariables": {},
+  "userNodes": {},
+  "linkedGlobalVariables": [],
+  "playbackConfig": {
+    "speed": 1
+  },
+  "layout": "Tab!2zeje0v"
+}
