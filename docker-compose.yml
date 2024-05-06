@@ -4,7 +4,7 @@ include:
   - ros-foxglove-bridge/docker-compose.yml
   - ros-rosbridge-suite/docker-compose.yml
   - ros-helix/docker-compose.yml
-  # - ros-helix-proprietary/docker-compose.yml
+  - ros-helix-proprietary/docker-compose.yml
 
 services:
   nginx:
