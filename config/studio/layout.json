@@ -1,19 +1,92 @@
 {
   "configById": {
+    "Plot!4c9yiqa": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[0]",
+          "enabled": true,
+          "color": "#2247b7"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[1]",
+          "enabled": true,
+          "color": "#389dff"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[2]",
+          "enabled": true,
+          "color": "#7eedff"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[3]",
+          "enabled": true,
+          "color": "#ec2525"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[4]",
+          "enabled": true,
+          "color": "#fea234"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[5]",
+          "enabled": true,
+          "color": "#fce96c"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[6]",
+          "enabled": true,
+          "color": "#079400"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[7]",
+          "enabled": true,
+          "color": "#53e00c"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/tendon_transmission_node/tendon_states.position[8]",
+          "enabled": true,
+          "color": "#90ff8b"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "none",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30,
+      "maxYValue": 0.03,
+      "minYValue": -0.2
+    },
+    "Table!sp3lpe": {
+      "topicPath": "/tendon_transmission_node/tendon_states"
+    },
     "3D!2mysn4t": {
       "cameraState": {
-        "distance": 0.9213959797364845,
         "perspective": true,
-        "phi": 62.041050007117626,
+        "distance": 0.42687467691443554,
+        "phi": 82.57187591339104,
+        "thetaOffset": 91.87151100468688,
+        "targetOffset": [
+          -0.6299281534019243,
+          0.03631547125513165,
+          -0.22
+        ],
         "target": [
           0,
           0,
           0
-        ],
-        "targetOffset": [
-          -0.882205573115996,
-          0.023861008341234197,
-          -2.4868086005988874e-18
         ],
         "targetOrientation": [
           0,
@@ -21,7 +94,6 @@
           0,
           1
         ],
-        "thetaOffset": 90.60709105145756,
         "fovy": 45,
         "near": 0.5,
         "far": 5000
@@ -156,6 +228,87 @@
         },
         "frame:horn_11_1": {
           "visible": false
+        },
+        "frame:seg1_mid_link_1": {
+          "visible": false
+        },
+        "frame:seg1_mid_link_2": {
+          "visible": false
+        },
+        "frame:seg1_mid_link_3": {
+          "visible": false
+        },
+        "frame:seg2_mid_link_1": {
+          "visible": false
+        },
+        "frame:seg2_mid_link_2": {
+          "visible": false
+        },
+        "frame:seg2_mid_link_3": {
+          "visible": false
+        },
+        "frame:seg2_mid_link_4": {
+          "visible": false
+        },
+        "frame:seg2_mid_link_5": {
+          "visible": false
+        },
+        "frame:seg2_mid_link_6": {
+          "visible": false
+        },
+        "frame:seg2_mid_link_7": {
+          "visible": false
+        },
+        "frame:seg3_mid_link_1": {
+          "visible": false
+        },
+        "frame:seg3_mid_link_2": {
+          "visible": false
+        },
+        "frame:seg3_mid_link_3": {
+          "visible": false
+        },
+        "frame:seg3_mid_link_4": {
+          "visible": false
+        },
+        "frame:seg3_mid_link_5": {
+          "visible": false
+        },
+        "frame:seg3_mid_link_6": {
+          "visible": false
+        },
+        "frame:seg3_mid_link_7": {
+          "visible": false
+        },
+        "frame:link_gripper": {
+          "visible": false
+        },
+        "frame:link0": {
+          "visible": false
+        },
+        "frame:link1": {
+          "visible": false
+        },
+        "frame:link2": {
+          "visible": false
+        },
+        "frame:link3": {
+          "visible": false
+        },
+        "frame:link4": {
+          "visible": false
+        },
+        "frame:link5": {
+          "visible": false
+        },
+        "frame:link6": {
+          "visible": false
+        },
+        "frame:link7": {
+          "visible": false
+        },
+        "frame:link8": {
+          "visible": false
         }
       },
       "topics": {
@@ -176,80 +329,8 @@
       },
       "imageMode": {}
     },
-    "Plot!4c9yiqa": {
-      "paths": [
-        {
-          "timestampMethod": "receiveTime",
-          "value": "/tendon_transmission_node/tendon_states.position[0]",
-          "enabled": true,
-          "color": "#2247b7"
-        },
-        {
-          "timestampMethod": "receiveTime",
-          "value": "/tendon_transmission_node/tendon_states.position[1]",
-          "enabled": true,
-          "color": "#389dff"
-        },
-        {
-          "timestampMethod": "receiveTime",
-          "value": "/tendon_transmission_node/tendon_states.position[2]",
-          "enabled": true,
-          "color": "#7eedff"
-        },
-        {
-          "timestampMethod": "receiveTime",
-          "value": "/tendon_transmission_node/tendon_states.position[3]",
-          "enabled": true,
-          "color": "#ec2525"
-        },
-        {
-          "timestampMethod": "receiveTime",
-          "value": "/tendon_transmission_node/tendon_states.position[4]",
-          "enabled": true,
-          "color": "#fea234"
-        },
-        {
-          "timestampMethod": "receiveTime",
-          "value": "/tendon_transmission_node/tendon_states.position[5]",
-          "enabled": true,
-          "color": "#fce96c"
-        },
-        {
-          "timestampMethod": "receiveTime",
-          "value": "/tendon_transmission_node/tendon_states.position[6]",
-          "enabled": true,
-          "color": "#079400"
-        },
-        {
-          "timestampMethod": "receiveTime",
-          "value": "/tendon_transmission_node/tendon_states.position[7]",
-          "enabled": true,
-          "color": "#53e00c"
-        },
-        {
-          "timestampMethod": "receiveTime",
-          "value": "/tendon_transmission_node/tendon_states.position[8]",
-          "enabled": true,
-          "color": "#90ff8b"
-        }
-      ],
-      "showXAxisLabels": true,
-      "showYAxisLabels": true,
-      "showLegend": true,
-      "legendDisplay": "none",
-      "showPlotValuesInLegend": false,
-      "isSynced": true,
-      "xAxisVal": "timestamp",
-      "sidebarDimension": 240,
-      "followingViewWidth": 30,
-      "maxYValue": 0.03,
-      "minYValue": -0.2
-    },
-    "Table!sp3lpe": {
-      "topicPath": "/tendon_transmission_node/tendon_states"
-    },
     "CallService!2aib645": {
-      "requestPayload": "{\"current\": 0.0}",
+      "requestPayload": "{\n  \"current\": -70.0\n}",
       "layout": "vertical",
       "serviceName": "/tendon_transmission_node/switch_to_current_control"
     },
@@ -257,7 +338,7 @@
       "buttonText": "Publish",
       "buttonTooltip": "",
       "advancedView": true,
-      "value": "{\n  \"layout\": {\n    \"dim\": [\n      {\n        \"label\": \"\",\n        \"size\": 0,\n        \"stride\": 0\n      }\n    ],\n    \"data_offset\": 0\n  },\n  \"data\": [\n    0,0,0,0,0,0,0,0,0\n  ]\n}",
+      "value": "{\n  \"data\": [0,0,0,0,0,0,0,0,0]\n}",
       "datatype": "std_msgs/msg/Float64MultiArray",
       "topicName": "/tendon_transmission_node/commands"
     },
@@ -266,28 +347,7 @@
       "diffMethod": "previous message",
       "diffTopicPath": "",
       "showFullMessageForDiff": false,
-      "topicPath": "/tendon_transmission_node/tendon_states",
-      "expansion": "all"
-    },
-    "Teleop!3v6wh9i": {
-      "topic": "/joy_cmd",
-      "publishRate": 1,
-      "upButton": {
-        "field": "linear-x",
-        "value": 1
-      },
-      "downButton": {
-        "field": "linear-x",
-        "value": -1
-      },
-      "leftButton": {
-        "field": "angular-z",
-        "value": 1
-      },
-      "rightButton": {
-        "field": "angular-z",
-        "value": -1
-      }
+      "topicPath": "/helix_cartesian_control_node/cartesian_state"
     },
     "Tab!2zeje0v": {
       "activeTabIdx": 0,
@@ -295,33 +355,29 @@
         {
           "layout": {
             "first": {
-              "first": "3D!2mysn4t",
-              "second": "Plot!4c9yiqa",
-              "direction": "column",
-              "splitPercentage": 64.79820627802691
+              "first": "Plot!4c9yiqa",
+              "second": "Table!sp3lpe",
+              "direction": "row",
+              "splitPercentage": 27.000712883663248
             },
             "second": {
-              "first": "Table!sp3lpe",
-              "second": {
-                "first": {
-                  "first": {
-                    "first": "CallService!2aib645",
-                    "second": "Publish!31ewfnw",
-                    "direction": "column",
-                    "splitPercentage": 45.39007092198582
-                  },
-                  "second": "RawMessages!10alrjp",
-                  "direction": "row"
+              "first": {
+                "first": "3D!2mysn4t",
+                "second": {
+                  "first": "CallService!2aib645",
+                  "second": "Publish!31ewfnw",
+                  "direction": "column",
+                  "splitPercentage": 62.905982905982896
                 },
-                "second": "Teleop!3v6wh9i",
                 "direction": "row",
-                "splitPercentage": 79.62477965529537
+                "splitPercentage": 53.83323467463278
               },
-              "direction": "column",
-              "splitPercentage": 35.53811659192825
+              "second": "RawMessages!10alrjp",
+              "direction": "row",
+              "splitPercentage": 70.93778381070497
             },
-            "direction": "row",
-            "splitPercentage": 27.97459176274752
+            "direction": "column",
+            "splitPercentage": 33.6734693877551
           },
           "title": "1"
         }
