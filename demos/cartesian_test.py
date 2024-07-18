@@ -66,6 +66,14 @@ try:
 
         goto_req = roslibpy.ServiceRequest({
             "goal_point":{"x": 0, "y": -0.17, "z": -0.5},
+            "goal_direction":{"x": 0, "y": 0, "z": -1},
+            "plan_linear":True
+            })
+        result = goto_srv.call(goto_req)
+        time.sleep(1)
+
+        goto_req = roslibpy.ServiceRequest({
+            "goal_point":{"x": 0, "y": -0.17, "z": -0.5},
             "goal_direction":{"x": 0, "y": -1, "z": -1},
             "plan_linear":True
             })
@@ -99,6 +107,14 @@ try:
         goto_req = roslibpy.ServiceRequest({
             "goal_point":{"x": -0.15, "y": -0.1, "z": -0.5},
             "goal_direction":{"x": -1, "y": 0, "z": -1},
+            "plan_linear":True
+            })
+        result = goto_srv.call(goto_req)
+        time.sleep(1.5)
+
+        goto_req = roslibpy.ServiceRequest({
+            "goal_point":{"x": -0.15, "y": -0.1, "z": -0.5},
+            "goal_direction":{"x": 0, "y": 0, "z": -1},
             "plan_linear":True
             })
         result = goto_srv.call(goto_req)
