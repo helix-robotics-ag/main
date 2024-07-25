@@ -2,6 +2,7 @@
 
 ## Initial Pi configuration steps
 - Ideally begin with a clean OS image (Rasperry Pi OS Lite recommended)
+- If the user ID of the account (`$ id -u`) isn't `1000`, add `export HOST_UID=$UID` to the `~/.bashrc` file.
 - Install docker - most easily with the [script](https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script), including the [post-install steps](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user) mentioned under **'Use Docker as a non-privileged user...'**.
 - Make sure you can authenticate on github (eg set up an SSH key on the Pi)
 - [Copy the rules file](https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_workbench/#copy-rules-file) for Dynamixel Workbench

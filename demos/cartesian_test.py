@@ -1,3 +1,7 @@
+### This is a simple demo script using the Cartesian pose planning. 
+### Just verify the robot is calibrated, in position control mode and connected
+### with roslibpy, then running this script will just cycle through some motions
+
 import sys
 import time
 

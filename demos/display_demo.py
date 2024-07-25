@@ -1,3 +1,7 @@
+### This is a simple demo script using a set of saved joint trajectories.
+### Just verify the robot is calibrated, in position control mode and connected
+### with roslibpy, then running this script will just cycle through some motions
+
 import sys
 import time
 import csv
